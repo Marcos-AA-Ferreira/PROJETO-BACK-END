@@ -7,7 +7,7 @@ require('dotenv').config();
 
 test('Authenticate testing', async () => {
     const response = await Api.post('login', {
-        username: "Max",
+        email: "maxiliun@gmail.com",
 	    password: "s45ops"
     });
 

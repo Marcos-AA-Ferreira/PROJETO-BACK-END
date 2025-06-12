@@ -17,10 +17,10 @@ class ProductsController {
 
     async listar(request, response) {
         const produto = await Products.findAll({
-            attributes: ["id", "name", "mark", "reference", "value", "description"],
+            attributes: ["id", "enabled", "name", "slug", "use_in_menu", "stock", "description", "price", "price_with_discount"],
             include: [
-                {model: ImageProducts, attributes: ["path_image"], as: 'Image'},
-                {model: OptionProducts, attributes: ["size", "color"], as: 'Option'},
+                {model: ImageProducts, attributes: ["path"], as: 'Image'},
+                {model: OptionProducts, attributes: ["title", "shape", "radius", "type", "values"], as: 'Option'},
                 {model: Category, attributes: ["name"], as: 'categorias', through: { attributes: [] }}
             ]
         });
@@ -30,10 +30,10 @@ class ProductsController {
     async consultarPorId(request, response) {
         const id = Number(request.params.id);
         const produto = await Products.findByPk(id, {
-            attributes: ["id", "name", "mark", "reference", "value", "description"],
+            attributes: ["id", "enabled", "name", "slug", "use_in_menu", "stock", "description", "price", "price_with_discount"],
             include: [
-                {model: ImageProducts, attributes: ["path_image"], as: 'Image'},
-                {model: OptionProducts, attributes: ["size", "color"], as: 'Option'},
+                {model: ImageProducts, attributes: ["path"], as: 'Image'},
+                {model: OptionProducts, attributes: ["title", "shape", "radius", "type", "values"], as: 'Option'},
                 {model: Category, attributes: ["name"], as: 'categorias', through: { attributes: [] }}
             ]
         });

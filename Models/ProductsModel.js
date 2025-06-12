@@ -17,25 +17,40 @@ class Products extends Model{
 
 Products.init(
     {
+        enabled: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+            defaultValue: false
+        },
         name: {
             type: DataTypes.STRING(100),
             allowNull: false
         },
-        mark: {
-            type: DataTypes.STRING(100),
+        slug: {
+            type: DataTypes.STRING(255),
             allowNull: false
         },
-        reference: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+        use_in_menu: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+            defaultValue: false
         },
-        value:{
+        stock: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 0
         },
         description: {
             type: DataTypes.STRING(255),
             allowNull: false
+        },
+        price: {
+            type: DataTypes.FLOAT,
+            allowNull: false,
+        },
+        price_with_discount: {
+            type: DataTypes.FLOAT,
+            allowNull: false,
         }
     },
     {

@@ -4,7 +4,7 @@ let token;
 
 beforeAll(async () => {
     const res = await Api.post('/login', {
-        username: "Max",
+        email: "maxiliun@gmail.com",
 	    password: "s45ops"
     });
     token = res.data.token;
@@ -22,9 +22,9 @@ describe('Testes da rota /users', () => {
 
     /*test('Criar usuário', async () => {
         const response = await Api.post('users', {
-            is_active: 1,
+            firstname: "jest"
+            surname: "user"
             email: "jestuser@example.com",
-            username: "jestuser",
             password: "jest123"
         }, getHeaders());
 
@@ -62,9 +62,8 @@ describe('Testes da rota /users', () => {
             console.log(response.data);
 
         const response2 = await Api.put('users/2', {
-            is_active: 4,
-            email: "jestuser@example.com",
-            username: "jest"
+            firstname: "JestUser",
+            email: "jest@example.com"
         }, getHeaders());
 
         expect(response2.status).toBe(200);
@@ -80,9 +79,8 @@ describe('Testes da rota /users', () => {
     test('Atualizar um usuário que não existente', async () => {
         try {
             await Api.put('users/9999', {
-            is_active: 4,
-            email: "jestuser@example.com",
-            username: "jest"
+            firstname: "JestUser",
+            email: "jest@example.com"
         }, getHeaders());
         } catch (error) {
             expect(error.response.status).toBe(404);

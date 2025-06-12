@@ -10,9 +10,9 @@ async function execute() {
     const password = MD5("s45ops").toString();
 
     const user = await User.create({
-      is_active: 1,
+      firstname: "Max",
+      surname: "steel",
       email: "maxiliun@gmail.com",
-      username: "Max",
       password: password
     });
 

@@ -45,15 +45,16 @@ const RoutesPublic =  express.Router();
 RoutesPublic.post('/login', async (request, response) => {
     
 try {
-        const { username, password } = request.body;
+        const { email, password } = request.body;
         const auth = new AuthController();
-        const dados = await auth.login(username, password);
+        const dados = await auth.login(email, password);
 
         if (dados) {
             const datatoken = {
                 id: dados.id,
+                firstname: dados.firstname,
+                surname: dados.surname,
                 email: dados.email,
-                username: dados.username,
                 exp: Math.floor(Date.now() / 1000) + 3600
             };
 

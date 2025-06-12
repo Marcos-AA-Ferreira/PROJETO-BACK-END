@@ -4,7 +4,7 @@ let token;
 
 beforeAll(async () => {
     const res = await Api.post('/login', {
-        username: "Max",
+        email: "maxiliun@gmail.com",
 	    password: "s45ops"
     });
     token = res.data.token;
@@ -22,17 +22,24 @@ describe('Testes da rota /products', () => {
 
     /*test('Criar produto', async () => {
         const response = await Api.post('products', {
+            enabled: 1,
             name: "Teclado Mecânico",
-            mark: "Redragon",
-            reference: 987654,
-            value: 349.00,
+            slug: "Redragon",
+            use_in_menu: 1,
+            stock: 20,
             description: "Teclado mecânico com LED RGB e switches vermelhos.",
+            price: 349.50,
+            price_with_discount: 300,
             Image: {
-                path_image: "/uploads/imagens/teclado.jpg"
+                enabled: 1,
+                path: "/uploads/imagens/teclado.jpg"
             },
             Option: {
-                "color": "Preto",
-                "size": 39
+                title: "Teclado",
+                shape: "square",
+                radius: 5,
+                type: "color",
+                values: "teclado"
             },
             categoria: [1] 
         }, getHeaders());
@@ -71,9 +78,9 @@ describe('Testes da rota /products', () => {
             console.log(response.data);
 
         const response2 = await Api.put('products/1', {
-            mark: "kbum",
-            reference: 12345,
-            description: "Teclado mecânico com LED RGB e switches azul.",
+            enabled: 0,
+            stock: 5,
+            price: 319.50
         }, getHeaders());
 
         expect(response2.status).toBe(200);

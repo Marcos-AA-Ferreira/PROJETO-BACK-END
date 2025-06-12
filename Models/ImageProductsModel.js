@@ -15,7 +15,12 @@ ImageProducts.init(
             },
             onDelete: "CASCADE"
         },
-        path_image: {
+        enabled: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        },
+        path: {
             type: DataTypes.STRING(255),
             allowNull: false
         }

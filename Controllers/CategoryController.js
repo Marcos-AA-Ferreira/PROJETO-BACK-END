@@ -3,13 +3,17 @@ const Category = require("../Models/CategoryModel");
 class CategoryController{
 
     async listar(request, response) {
-        const categoria = await Category.findAll();
+        const categoria = await Category.findAll({
+            attributes: ["id", "name", "slug"]
+        });
         return response.status(200).json(categoria);
     }
 
     async consultarPorId(request, response) {
         const id = Number(request.params.id);
-        const categoria = await Category.findByPk(id);
+        const categoria = await Category.findByPk(id, {
+            attributes: ["id", "name", "slug"]
+        });
 
         if (!categoria) {
             return response.status(404).json({ message: "Categoria não encontrada" });

@@ -4,7 +4,7 @@ let token;
 
 beforeAll(async () => {
     const res = await Api.post('/login', {
-        username: "Max",
+        email: "maxiliun@gmail.com",
 	    password: "s45ops"
     });
     token = res.data.token;
@@ -22,7 +22,8 @@ describe('Testes da rota /category', () => {
 
     /*test('Criar categoria', async () => {
         const response = await Api.post('category', {
-                name: "Casual"
+                name: "Casual",
+                slug: "Também não sei"
             }, getHeaders());
 
         expect(response.status).toBe(201);

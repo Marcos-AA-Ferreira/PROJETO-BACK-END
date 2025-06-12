@@ -15,13 +15,32 @@ OptionProducts.init(
             },
             onDelete: "CASCADE"
         },
-        size: {
-            type: DataTypes.STRING(45),
+        title: {
+            type: DataTypes.STRING(100),
             allowNull: false
         },
-        color: {
-            type: DataTypes.STRING(45),
-            allowNull: false
+        shape: {
+            type: DataTypes.ENUM("square", "circle"),
+            allowNull: true,
+            defaultValue: "square"
+        },
+        radius: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
+        },
+        type: {
+            type: DataTypes.ENUM("text", "color"),
+            allowNull: true,
+            defaultValue: "text"
+        },
+        values: {
+            type: DataTypes.STRING(255),
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+                is: /^[^,]+(,[^,]+)*$/i
+            }
         }
     },
     {

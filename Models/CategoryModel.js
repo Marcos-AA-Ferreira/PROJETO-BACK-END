@@ -6,13 +6,21 @@ class Category extends Model {}
 Category.init(
     {
         name: {
-            type: DataTypes.STRING(45),
+            type: DataTypes.STRING(100),
             allowNull: false
+        },
+        slug: {
+            type: DataTypes.STRING(255),
+            allowNull: false
+        },
+        use_in_menu: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+            defaultValue: false
         }
     },
     {
         sequelize: connection,
-        timestamps: false
     }
 );
 

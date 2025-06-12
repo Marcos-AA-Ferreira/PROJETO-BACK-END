@@ -5,22 +5,21 @@ class Users extends Model {}
 
 Users.init(
     {
-        is_active: {
-            type: DataTypes.TINYINT(1),
-            defaultValue: 0,
-            allowNull: false //NOT NULL
+        firstname: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        surname: {
+            type: DataTypes.STRING(100),
+            allowNull: false
         },
         email: {
-            type: DataTypes.STRING(45),
-            allowNull: false //NOT NULL
-        },
-        username: {
-            type: DataTypes.STRING(45),
-            allowNull: false //NOT NULL
+            type: DataTypes.STRING(100),
+            allowNull: false
         },
         password: {
-            type: DataTypes.STRING(45),
-            allowNull: false //NOT NULL
+            type: DataTypes.STRING(255),
+            allowNull: false
         },
     },
     {
