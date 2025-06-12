@@ -22,8 +22,8 @@ describe('Testes da rota /users', () => {
 
     /*test('Criar usuário', async () => {
         const response = await Api.post('users', {
-            firstname: "jest"
-            surname: "user"
+            firstname: "jest",
+            surname: "user",
             email: "jestuser@example.com",
             password: "jest123"
         }, getHeaders());

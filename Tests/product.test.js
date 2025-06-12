@@ -105,19 +105,19 @@ describe('Testes da rota /products', () => {
     });*/
 
     /*test('Deletar um produto', async () => {
-        const response = await Api.get('products/6', getHeaders());
+        const response = await Api.get('products/1', getHeaders());
 
         expect(response.status).toBe(200);
         console.log(response.data);
 
-        const response2 = await Api.delete('products/6', getHeaders());
+        const response2 = await Api.delete('products/1', getHeaders());
 
         expect(response2.status).toBe(200);
         expect(response2.data.message).toBe("produto deletado com sucesso");
         console.log(response2.data);
 
         try {
-            await Api.get('products/6', getHeaders());
+            await Api.get('products/1', getHeaders());
         } catch (error) {
             expect(error.response.status).toBe(404);
             console.log(error.response.data);
