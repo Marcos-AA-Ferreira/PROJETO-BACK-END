@@ -16,8 +16,25 @@
   <img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=YELLOW&style=for-the-badge"/>
 </p>
 
+<br>
+
+## 📚 Sumário
+
+- [📌 Descrição](#-descrição)
+- [🚀 Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [🔧 Funcionalidades](#-funcionalidades)
+- [🧩 Estrutura de Pastas](#-estrutura-de-pastas)
+- [🌐 Rotas da API](#-rotas-da-api)
+- [🧪 Testes e Documentação](#-testes-e-documentação)
+- [📦 Exemplos de Requisições (JSON)](#-exemplos-de-requisições-json)
+
+  <br>
+  <br>
+
 ## 📌 Descrição
 Esta API foi desenvolvida com o intuito de fornecer o back-end para uma aplicação de vendas, permitindo o cadastro de usuários e produtos, além de disponibilizar os dados necessários para o funcionamento da aplicação como uma loja virtual.
+
+<br>
 
 ---
 
@@ -34,6 +51,8 @@ Esta API foi desenvolvida com o intuito de fornecer o back-end para uma aplicaç
 - Jest
 - Nodemon
 
+<br>
+
 ---
 
   ## 🔧 Funcionalidades
@@ -46,6 +65,8 @@ Esta API foi desenvolvida com o intuito de fornecer o back-end para uma aplicaç
 - Rotas de atualização, buscar, cadastro e remoção de produtos.
 - testes de rotas com jest.
 - Documentação com Swagger.
+
+<br>
 
 ---
 
@@ -67,6 +88,8 @@ PROJETO BACK END/
 └── server.js
 ```
 
+<br>
+
 ---
 
 ## 🌐 Rotas da API
@@ -74,6 +97,13 @@ PROJETO BACK END/
 ### 📂 Rotas Públicas
 
 - `POST /login` – Realiza login e retorna um token JWT
+- exemplo de login:
+```json
+{
+	"email": "maxiliun@gmail.com",
+	"password": "s45ops"
+}
+```
 
 ### 🔐 Rotas Privadas (Requerem Token JWT no header)
 
@@ -101,6 +131,8 @@ PROJETO BACK END/
 - `PUT /products/:id` – Atualiza produto  
 - `DELETE /products/:id` – Remove produto
 
+<br>
+
 ---
 
 ## 🧪 Testes e Documentação
@@ -118,3 +150,57 @@ Além é recomendado realizar os testes de forma separada.
 - `npx jest Tests/product.test.js --runInBand` - testes das rotas de produtos
 
 ---
+
+<br>
+
+## 📦 Exemplos de Requisições (JSON)
+
+Abaixo estão exemplos de dados em JSON que podem ser utilizados para cadastrar usuários, categorias e produtos na API.
+
+
+### 👤 Cadastro de Usuário
+
+```json
+{
+	"firstname": "Max",
+  "surname": "steel",
+  "email": "maxiliun@gmail.com",
+  "password": "s45ops"
+}
+```
+
+### 🗂️ Cadastro de Categoria
+
+```json
+{
+  "name": "Eletrônicos",
+  "slug": "eletronicos"
+}
+```
+
+### 🛍️ Cadastro de Produto
+
+```json
+{
+  "enabled": 1,
+  "name": "Teclado Mecânico",
+	"slug": "teclado",
+	"use_in_menu": 1,
+	"stock": 20,
+	"description": "Teclado mecânico com LED RGB e switches vermelhos.",
+	"price": 349.50,
+	"price_with_discount": 300,
+  "Image": {
+		"enabled": 1,
+		"path": "/uploads/imagens/teclado.jpg"
+	},
+	"Option": {
+		"title": "Teclado",
+		"shape": "square",
+		"radius": 5,
+		"type": "color",
+		"values": "teclado"
+	},
+	"categoria": [1] 
+}
+```
